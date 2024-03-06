@@ -1,1 +1,19 @@
-// phew… not a lot going on here. Please add some code!
+//toggle
+const toggleBookmark = document.querySelector('[data-js="toggle-bookmark"]');
+
+toggleBookmark.addEventListener("click", () => {
+  toggleBookmark.classList.toggle("blue-button");
+});
+
+// Answer-button
+const showAnswerButton = document.querySelector('[data-js="answer-button"]');
+const pElement = document.querySelector('[data-js="answer"]');
+
+showAnswerButton.addEventListener("click", () => {
+  pElement.classList.toggle("hidden");
+  if (showAnswerButton.innerHTML === "Hide answer") {
+    showAnswerButton.textContent = "Show answer";
+  } else {
+    showAnswerButton.textContent = "Hide answer";
+  }
+});
