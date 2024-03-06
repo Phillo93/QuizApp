@@ -1,19 +1,17 @@
-//toggle
-const toggleBookmark = document.querySelector('[data-js="toggle-bookmark"]');
+document.addEventListener("DOMContentLoaded", function () {
+  const firstCardBookmarkButton = document.querySelector(
+    ".card-list__item:first-child .bookmark"
+  );
+  const firstCardAnswerButton = document.querySelector(
+    ".card-list__item:first-child .card__button-answer"
+  );
 
-toggleBookmark.addEventListener("click", () => {
-  toggleBookmark.classList.toggle("blue-button");
-});
+  firstCardBookmarkButton.addEventListener("click", function () {
+    this.classList.toggle("bookmark--active");
+  });
 
-// Answer-button
-const showAnswerButton = document.querySelector('[data-js="answer-button"]');
-const pElement = document.querySelector('[data-js="answer"]');
-
-showAnswerButton.addEventListener("click", () => {
-  pElement.classList.toggle("hidden");
-  if (showAnswerButton.innerHTML === "Hide answer") {
-    showAnswerButton.textContent = "Show answer";
-  } else {
-    showAnswerButton.textContent = "Hide answer";
-  }
+  firstCardAnswerButton.addEventListener("click", function () {
+    const answer = this.parentElement.querySelector(".card__answer");
+    answer.classList.toggle("card__answer--active");
+  });
 });
